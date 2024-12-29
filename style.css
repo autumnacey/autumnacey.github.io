@@ -1,0 +1,130 @@
+body{
+    background-image: url("assets/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Garamond, serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.button { 
+    background-color: #103eb7; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 20px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    font-family: Garamond, serif;
+}
+
+.panel {
+    background-color: white; 
+    border: none; 
+    color: black; 
+    padding: 20px 30px;  
+    text-decoration: none; 
+    font-size: 20px; 
+    width: 75%;
+    margin-inline: auto;
+    margin-top: 25px;
+    border-radius: 25px; 
+    box-shadow: 5px 2px rgba(0, 0, 0, 0.2);
+    opacity: .88;
+}
+
+.menu-button {
+    background-color: rgb(222, 226, 253);
+    border:#103eb7;
+    color: black;
+    cursor: pointer;
+    padding:10px;
+    width:100%;
+    font-size: 2vw;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-button-disabled {
+    background-color: rgb(175, 175, 175);
+    border:#103eb7;
+    color: black;
+    cursor: pointer;
+    padding:10px;
+    width:100%;
+    font-size: 2vw;
+    height: fit-content;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    pointer-events: none;
+}
+
+.text-center{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.center{
+    display:block;
+    margin-inline:auto;
+    width:50%;
+}
+
+.column{
+    float: left;
+    width: 12%;
+    padding: 5px;
+    margin: 10px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.blank{
+    width:100%;
+    background-color: white;
+    color:white;
+}
+
+.nav{
+    width:8%;
+    background-color: rgb(222, 226, 253);
+    color: #103eb7;
+    font-size: 20px;
+    border-radius: 10px;
+    position: fixed;
+    box-shadow: 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navlist{
+    list-style-type: none;
+    list-style: none;
+    padding-left: 15px;
+}
+
+input[type=text] {
+    width: 100%;
+    background-color: rgb(222, 226, 253);
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.disabled {
+    pointer-events: none;
+}

@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Resolve Memories</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="nav">
+            <ul class="navlist">
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="help.html"">Help</a></li>
+            </ul>
+        </div>
+        <div class="panel">
+            <h1>Work on the Memory</h1>
+            <p>In this step, we are briefly activating the memory content, immediately containing the distress, and going into your calm scene video where we will blink. If you are struggling with any of these steps, stop. See the Help section in the menu bar if you are encountering difficulties. It’s a good idea to read the Help section ahead of time, so that you know how to respond if difficulties appear. </p>
+            <p>Search for the video you used in the Rehearsal step using the search bar below.</p>
+            <a href="check.html" class="button">Next</a>
+            <br> <hr> <br>
+            <div id="buttons">
+                <label> <input id="query" value="" type="text"/><button class="button" id="search-button" onclick="keyWordsearch()">Search</button></label>    
+                <script>document.getElementById("query").value=localStorage.getItem("savedSearch")</script>
+                <div id="container">
+                <ul id="results"></ul>        
+                    <script>
+                    function keyWordsearch(){
+                    gapi.client.setApiKey('AIzaSyDBeXo29Ho9KsY8CFvOX08SyFZPntXfKak');
+                    gapi.client.load('youtube', 'v3', function(){
+                            makeRequest();
+                    });
+                    }
+                    function makeRequest(){
+                    var q = $('#query').val();
+                    var request = gapi.client.youtube.search.list({
+                            q: q,
+                            part: 'snippet', 
+                            maxResults: 1
+                    });
+                    request.execute(function(response)  {                                                                                    
+                            $('#results').empty()
+                            var srchItems = response.result.items;                      
+                            $.each(srchItems, function(index, item){
+                            vidTitle = item.snippet.title;   
+                            vidID = item.id.videoId;
+                            vidURL = "https://www.youtube.com/embed/" + vidID;
+                            videoEmbed = document.createElement("iframe");
+                            videoEmbed.src = vidURL;
+                            videoEmbed.width = "600px";
+                            videoEmbed.height = "400px";
+                            document.getElementById("container").appendChild(videoEmbed);
+                            })  
+                    })  
+                    }
+                    </script> 
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+                    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady">   </script>
+            <audio controls>
+                <source src="blinks.wav" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Resolve Memories</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="nav">
+            <ul class="navlist">
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="help.html"">Help</a></li>
+            </ul>
+        </div>
+        <div class="panel">
+            <h1>Open & Close the Memory</h1>
+            <p>Very quickly think about the bad memory. Whatever's distressing in this millisecond. </p>
+            <h2>Do you detect any distress?</h2>
+            <p>If so, catch it, contain it, and push it far, far away. Click Yes to return to the calm scene.</p>
+            <p>If not, click No to proceed.</p>
+            <a href="work.html" class="button">Yes</a>
+            <a class="button" href="view.html"  onclick="toggleDistress()">No</a>
+            <!--store "No" answer so that check goes to view instead of open-->
+            <script>
+                sessionStorage.setItem("distress", "true");
+
+                function toggleDistress(){
+                    sessionStorage.setItem("distress", "false")
+                    console.log(sessionStorage.getItem("distress"));
+                }
+            </script>
+        </div>
+    </body>
+</html>
